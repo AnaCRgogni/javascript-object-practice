@@ -1,0 +1,180 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --font-main: 'Inter', Arial, Helvetica, sans-serif;
+    --color-bg: #fff8f0;
+    --color-svg-bg: #f6e7d8;
+    --color-primary: #b56576;
+    --color-secondary: #ea5f89;
+    --color-accent1: #b5ead7;
+    --color-accent2: #f7cac9;
+    --color-accent3: #ffdac1;
+    --color-accent4: #c7ceea;
+    --color-accent5: #ffb7b2;
+    --color-shadow: #b5657622;
+    --color-shadow2: #b5657611;
+    --color-form-bg: #fff;
+    --color-book-text: #4a7c59;
+    --color-border: #b56576;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: var(--font-main);
+    background: var(--color-bg);
+    min-height: 100vh;
+}
+
+.svg-bg {
+    width: 100%;
+    overflow: hidden;
+    background: var(--color-svg-bg);
+    border-bottom: 3px solid var(--color-primary);
+}
+
+.library-title {
+    text-align: center;
+    font-size: 2.8rem;
+    color: var(--color-primary);
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    text-shadow: 1px 2px 0 #fff, 2px 4px 0 var(--color-accent2);
+}
+
+#book-form {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 1rem;
+    background: var(--color-form-bg);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px var(--color-shadow);
+    padding: 1.5rem 2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+#book-form input,
+#book-form select,
+#book-form button {
+    font-family: inherit;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    outline: none;
+}
+
+#book-form select {
+    background: var(--color-form-bg); /* Match input background */
+    color: inherit;
+}
+
+#book-form button {
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    align-self: flex-start; /* Button aligns left with fields */
+}
+
+#books-list {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding-bottom: 2rem;
+}
+
+#books-list div {
+    background: var(--color-form-bg);
+    border-left: 8px solid var(--color-accent1);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px var(--color-shadow2);
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+    color: var(--color-book-text);
+    transition: border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    position: relative;
+}
+
+#books-list div:nth-child(even) {
+    border-left-color: var(--color-accent2);
+}
+
+.remove-btn,
+.toggle-btn {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    border: none;
+    margin-right: 0.7rem;
+    margin-top: 0.3rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 1px 4px var(--color-shadow2);
+}
+
+.remove-btn {
+    background: var(--color-secondary);
+    color: #fff;
+}
+
+.remove-btn:hover {
+    background: #ffb7b2;
+    color: var(--color-primary);
+}
+
+.toggle-btn {
+    background: var(--color-accent1);
+    color: var(--color-book-text);
+}
+
+.toggle-btn:hover {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+#books-list div .remove-btn,
+#books-list div .toggle-btn {
+    display: inline-block;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto;
+    max-width: 700px;
+    width: 100%;
+}
+
+/* The @media rule in CSS is used to apply styles only when certain conditions are met, such as the width of the screen or device. This is called a media query. */
+@media (min-width: 500px) {
+    #books-list div {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #books-list div .remove-btn,
+    #books-list div .toggle-btn {
+        margin-top: 0;
+    }
+}
